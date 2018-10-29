@@ -4,3 +4,5 @@ build/
 gradle.properties
 .gradle
 .DS_Store
+/RiippuvuuksienInjektointi1/.nb-gradle/
+/NhlStatistics1/.nb-gradle/
