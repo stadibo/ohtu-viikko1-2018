@@ -64,5 +64,58 @@ public class VarastoTest {
         // varastossa pitäisi olla tilaa 10 - 8 + 2 eli 4
         assertEquals(4, varasto.paljonkoMahtuu(), vertailuTarkkuus);
     }
+    
+    @Test
+    public void uselessStorageUnitCanBeCreated() {
+        varasto = new Varasto(0.0);
+        assertEquals(0, varasto.paljonkoMahtuu(), vertailuTarkkuus);
+    }
+    
+    @Test
+    public void uselessStorageUnitCanBeCreatedWithZeroSaldo() {
+        varasto = new Varasto(0.0, -10.0);
+        assertEquals(0, varasto.paljonkoMahtuu(), vertailuTarkkuus);
+    }
+    
+    @Test
+    public void initialSaldoNotBiggerThanVolume() {
+        varasto = new Varasto(4.0, 5.0);
+        assertEquals(4.0, varasto.getSaldo(), vertailuTarkkuus);
+    }
+    
+    @Test
+    public void storageUnitWithLegalSaldoLeavesCorrectAmountOfSpaceLeft() {
+        varasto = new Varasto(4.0, 2.0);
+        assertEquals(2.0, varasto.paljonkoMahtuu(), vertailuTarkkuus);
+    }
+    
+    @Test
+    public void addingNegativeAmountToStorageUnitChangesNothing() {
+        varasto.lisaaVarastoon(-1);
+        assertEquals(10.0, varasto.paljonkoMahtuu(), vertailuTarkkuus);
+    }
+    
+    @Test
+    public void addingMoreThanCapacityFillsStorageAndDiscardsTheRest() {
+        varasto.lisaaVarastoon(12.0);
+        assertEquals(10.0, varasto.getSaldo(), vertailuTarkkuus);
+    }
+    
+    @Test
+    public void removingNegativeAmountReturnsZero() {
+        assertEquals(0.0, varasto.otaVarastosta(-1.0), vertailuTarkkuus);
+    }
+    
+    @Test
+    public void removingMoreThanSaldoEmptiesStorageUnit() {
+        varasto.lisaaVarastoon(4.0);
+        assertEquals(4.0, varasto.otaVarastosta(10.0), vertailuTarkkuus);
+    }
+    
+    @Test
+    public void toStringPrintsCorrectInformation() {
+        varasto.lisaaVarastoon(4.0);
+        assertEquals("saldo = 4.0, vielä tilaa 6.0", varasto.toString());
+    }
 
 }

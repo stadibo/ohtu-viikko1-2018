@@ -1,2 +1,6 @@
 *.tmp
 build/
+/.nb-gradle/
+gradle.properties
+.gradle
+
