@@ -114,7 +114,7 @@ public class VarastoTest {
     
     @Test
     public void toStringPrintsCorrectInformation() {
-        varasto.lisaaVarastoon(3.0);
+        varasto.lisaaVarastoon(4.0);
         assertEquals("saldo = 4.0, vielä tilaa 6.0", varasto.toString());
     }
 
