@@ -7,4 +7,5 @@
  <suppressions>
     <suppress checks="MethodLength" files="Main.java"/>
     <suppress checks="MagicNumber" files="Main.java"/>
+    <suppress checks="MagicNumber" files="VarastoTest.java"/>
   </suppressions>
