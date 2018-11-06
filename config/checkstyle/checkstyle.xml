@@ -3,7 +3,7 @@
 <module name="Checker">
 
   <module name="SuppressionFilter">
-    <property name="file" value="${suppressionFile}"/>
+    <property name="file" value="${suppressionFile}" default="suppressions.xml"/>
   </module>
 
   <module name="TreeWalker">
