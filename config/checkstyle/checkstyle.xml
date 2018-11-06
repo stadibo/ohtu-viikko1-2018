@@ -3,11 +3,7 @@
 <module name="Checker">
 
   <module name="SuppressionFilter">
-<<<<<<< HEAD
-    <property name="file" value="config/checkstyle/suppressions.xml"/>
-=======
-    <property name="file" value="${config_loc}/suppressions.xml"/>
->>>>>>> 829445ee13b61828c0a82663a3e0b9444e4df167
+    <property name="file" value="${suppressionFile}"/>
   </module>
 
   <module name="TreeWalker">

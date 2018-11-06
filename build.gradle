@@ -41,6 +41,11 @@ jar {
 // Define the main class for the application
 mainClassName = 'ohtu.main.Main'
 
+checkstyle {
+	configFile = project(':').file('config/checkstyle/checkstyle.xml')
+	configProperties = [ "suppressionFile" : project(':').file('config/checkstyle/suppressions.xml')]
+}
+
 jacocoTestReport {
     reports {
         xml.enabled true
